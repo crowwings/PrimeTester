@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.util.Log;
+
 
 
 public class PrimeTesterActivity extends ActionBarActivity {
@@ -38,6 +40,13 @@ String input = String.valueOf(inputField.getText());
 String result;
 try {
 long value = Long.valueOf(input);
+    int i;
+    boolean x;
+    for (i=0; i<100; i++) {
+        x=PrimeTester.isPrime(i);
+        if (x)
+            Log.i("isPrime",""+i);
+    }
 result = PrimeTester.isPrime(value) ? primeString : notPrimeString;
 } catch (NumberFormatException nfx) {
 result = notPrimeString;
